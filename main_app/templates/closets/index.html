@@ -2,10 +2,47 @@
 
 <h1>My Closet</h1>
 
-{% for closet in closets %}
+{% for top in tops %}
 <div class="card">
   <div class="card-content">
-    <span class="card-title">{{ closet.category }}</span>
+    <span class="card-title">TOPS</span>
+    <p>{{top.category}}</p>
+  </div>
+</div>
+{% endfor %}
+
+{% for bottom in bottoms %}
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">BOTTOMS</span>
+    <p>{{bottom.category}}</p>
+  </div>
+</div>
+{% endfor %} 
+
+{% for coat in coats %}
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">COATS</span>
+    <p>{{coat.category}}</p>
+  </div>
+</div>
+{% endfor %} 
+
+{% for shoe in shoes %}
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">SHOES</span>
+    <p>{{shoecategory}}</p>
+  </div>
+</div>
+{% endfor %} 
+
+{% for accessory in accessories %}
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">ACCESSORIES</span>
+    <p>{{accessory.category}}</p>
   </div>
 </div>
 {% endfor %} {% endblock %}
