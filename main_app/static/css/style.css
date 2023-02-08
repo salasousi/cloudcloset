@@ -1,0 +1,20 @@
+
+body {
+    background-color: #263238;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+  
+main {
+    flex: 1 0 auto;
+}
+
+.page-footer{
+    background-color: teal;
+}
+
+footer {
+    padding-top: 0;
+    text-align: right;
+  }
