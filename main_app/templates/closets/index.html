@@ -6,7 +6,7 @@
 <div class="card">
   <div class="card-content">
     <span class="card-title">TOPS</span>
-    <p>{{top.category}}</p>
+    <a href="/mycloset/tops/{{ top.id }}"><p>{{top.category}}</p></a>
   </div>
 </div>
 {% endfor %}
@@ -15,7 +15,7 @@
 <div class="card">
   <div class="card-content">
     <span class="card-title">BOTTOMS</span>
-    <p>{{bottom.category}}</p>
+    <a href="/mycloset/bottoms/{{ bottom.id }}"><p>{{bottom.category}}</p></a>
   </div>
 </div>
 {% endfor %} 
@@ -24,7 +24,7 @@
 <div class="card">
   <div class="card-content">
     <span class="card-title">COATS</span>
-    <p>{{coat.category}}</p>
+    <a href="/mycloset/coats/{{ coat.id }}">{{coat.category}}</p></a>
   </div>
 </div>
 {% endfor %} 
@@ -33,7 +33,7 @@
 <div class="card">
   <div class="card-content">
     <span class="card-title">SHOES</span>
-    <p>{{shoecategory}}</p>
+    <a href="/mycloset/shoes/{{ shoe.id }}"><p>{{shoe.category}}</p></a>
   </div>
 </div>
 {% endfor %} 
@@ -42,7 +42,7 @@
 <div class="card">
   <div class="card-content">
     <span class="card-title">ACCESSORIES</span>
-    <p>{{accessory.category}}</p>
+    <a href="/mycloset/accessories/{{ accessory.id }}"><p>{{accessory.category}}</p></a>
   </div>
 </div>
 {% endfor %} {% endblock %}

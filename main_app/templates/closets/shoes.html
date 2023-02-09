@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>My {{ shoe.category }}</h1>
+{% if shoe.shoetypes.count %}
+{% for shoetype in shoe.shoetypes.all %}
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">
+       {{ shoetype.name }}
+    </span>
+  </div>
+</div>
+{% endfor %}
+{% else %}
+<h5>You do not have any {{ shoe.category }} yet 😞</h5>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>My {{ top.category }} Tops</h1>
+{% if top.toptypes.count %}
+{% for toptype in top.toptypes.all %}
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">
+       {{ toptype.name }}
+    </span>
+  </div>
+</div>
+{% endfor %}
+{% else %}
+<h5>You do not have any {{ top.category }} tops yet 😞</h5>
+{% endif %}
+
+{% endblock %}
+
+
+
+
+
+
+

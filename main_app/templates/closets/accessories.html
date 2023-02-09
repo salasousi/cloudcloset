@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>My {{ accessory.category }}</h1>
+{% if accessory.accessorytypes.count %}
+{% for accessorytype in accessory.accessorytypes.all %}
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">
+       {{ accessorytype.name }}
+    </span>
+  </div>
+</div>
+{% endfor %}
+{% else %}
+<h5>You do not have any {{ accessory.category }} yet 😞</h5>
+{% endif %}
+
+{% endblock %}
