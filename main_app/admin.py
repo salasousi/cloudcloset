@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Top, Bottom, Coat, Shoe, Accessory
+from .models import Top, Bottom, Coat, Shoe, Accessory, Topphoto
 
 
 
@@ -10,3 +10,4 @@ admin.site.register(Bottom)
 admin.site.register(Coat)
 admin.site.register(Shoe)
 admin.site.register(Accessory)
+admin.site.register(Topphoto)

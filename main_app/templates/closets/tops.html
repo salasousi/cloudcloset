@@ -1,8 +1,8 @@
 {% extends 'base.html' %} {% block content %}
 
 <h1>My {{ top.category }} Tops</h1>
-{% if top.toptypes.count %}
-{% for toptype in top.toptypes.all %}
+
+<!-- {% for toptype in top.toptypes.all %}
 <div class="card">
   <div class="card-content">
     <span class="card-title">
@@ -10,10 +10,27 @@
     </span>
   </div>
 </div>
+{% endfor %} -->
+
+
+{% for topphoto in top.topphoto_set.all %}
+<img class="responsive-img card-panel" src="{{topphoto.url}}">
+{% empty %}
+<div class="card-panel teal-text center-align">You do not have any {{ top.category }} tops yet 😞</div>
 {% endfor %}
-{% else %}
-<h5>You do not have any {{ top.category }} tops yet 😞</h5>
-{% endif %}
+
+<form
+  action="{% url 'add_top_photo' top.id %}"
+  enctype="multipart/form-data"
+  method="POST"
+  class="card-panel"
+>
+  {% csrf_token %}
+  <input type="file" name="top-photo-file" />
+  <br /><br />
+  <input type="submit" class="btn" value="Upload Photo" />
+</form>
+
 
 {% endblock %}
 

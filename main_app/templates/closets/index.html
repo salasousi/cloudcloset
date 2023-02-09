@@ -2,47 +2,58 @@
 
 <h1>My Closet</h1>
 
-{% for top in tops %}
+
 <div class="card">
   <div class="card-content">
     <span class="card-title">TOPS</span>
-    <a href="/mycloset/tops/{{ top.id }}"><p>{{top.category}}</p></a>
+    {% for top in tops %}
+      <a href="/mycloset/tops/{{ top.id }}"><p>{{top.category}}</p></a>
+    {% endfor %}
   </div>
 </div>
-{% endfor %}
 
-{% for bottom in bottoms %}
+
+
 <div class="card">
   <div class="card-content">
     <span class="card-title">BOTTOMS</span>
-    <a href="/mycloset/bottoms/{{ bottom.id }}"><p>{{bottom.category}}</p></a>
+    {% for bottom in bottoms %}
+      <a href="/mycloset/bottoms/{{ bottom.id }}"><p>{{bottom.category}}</p></a>
+    {% endfor %} 
   </div>
 </div>
-{% endfor %} 
 
-{% for coat in coats %}
+
+
 <div class="card">
   <div class="card-content">
     <span class="card-title">COATS</span>
-    <a href="/mycloset/coats/{{ coat.id }}">{{coat.category}}</p></a>
+    {% for coat in coats %}
+      <a href="/mycloset/coats/{{ coat.id }}">{{coat.category}}</p></a>
+    {% endfor %} 
   </div>
 </div>
-{% endfor %} 
 
-{% for shoe in shoes %}
+
+
 <div class="card">
   <div class="card-content">
     <span class="card-title">SHOES</span>
-    <a href="/mycloset/shoes/{{ shoe.id }}"><p>{{shoe.category}}</p></a>
+    {% for shoe in shoes %}
+      <a href="/mycloset/shoes/{{ shoe.id }}"><p>{{shoe.category}}</p></a>
+    {% endfor %} 
   </div>
 </div>
-{% endfor %} 
 
-{% for accessory in accessories %}
+
+
 <div class="card">
   <div class="card-content">
     <span class="card-title">ACCESSORIES</span>
-    <a href="/mycloset/accessories/{{ accessory.id }}"><p>{{accessory.category}}</p></a>
+    {% for accessory in accessories %}
+      <a href="/mycloset/accessories/{{ accessory.id }}"><p>{{accessory.category}}</p></a>
+    {% endfor %} 
   </div>
 </div>
-{% endfor %} {% endblock %}
+
+{% endblock %}
