@@ -2,12 +2,6 @@
 
 <h1>My {{ coat.category }}</h1>
 
-{% for coatphoto in coat.coatphoto_set.all %}
-<img class="responsive-img card-panel" src="{{coatphoto.url}}">
-{% empty %}
-<div class="card-panel teal-text center-align">You do not have any {{ coat.category }} yet 😞</div>
-{% endfor %}
-
 <form
   action="{% url 'add_coat_photo' coat.id %}"
   enctype="multipart/form-data"
@@ -20,5 +14,21 @@
   <input type="submit" class="btn" value="Upload Photo" />
 </form>
 
+{% for coatphoto in coat.coatphoto_set.all %}
+<div class="col s12 m7 l4">
+  <div class="card small">
+    <div class="card-image">
+      <img class="responsive-img" src="{{coatphoto.url}}">
+    </div>
+    <div class="card-stacked">
+      <div class="card-action">
+        <a href="{% url 'coats_delete' coatphoto.id %}">Delete</a>
+      </div>
+    </div>
+  </div>
+  {% empty %}
+  <div class="card-panel teal-text center-align">You do not have any {{ coat.category }} yet 😞</div>
+{% endfor %} 
 
+          
 {% endblock %}

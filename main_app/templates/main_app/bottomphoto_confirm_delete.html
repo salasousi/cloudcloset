@@ -1,0 +1,14 @@
+{% extends 'base.html' %} {% block content %}
+<h1>Delete Bottoms</h1>
+
+<h4>
+  Are you sure you want to remove this 
+  <span class="teal-text">{{ object.category }}</span> bottom from your closet?
+</h4>
+
+<form action="" method="POST">
+  {% csrf_token %}
+  <input type="submit" value="Yes - Delete!" class="btn" />
+  <a href="{% url 'b_detail' bottomphoto.id %}">Cancel</a>
+</form>
+{% endblock %}

@@ -2,12 +2,6 @@
 
 <h1>My {{ shoe.category }}</h1>
 
-{% for shoephoto in shoe.shoephoto_set.all %}
-<img class="responsive-img card-panel" src="{{shoephoto.url}}">
-{% empty %}
-<div class="card-panel teal-text center-align">You do not have any {{ shoe.category }} yet 😞</div>
-{% endfor %}
-
 <form
   action="{% url 'add_shoe_photo' shoe.id %}"
   enctype="multipart/form-data"
@@ -21,4 +15,21 @@
 </form>
 
 
+{% for shoephoto in shoe.shoephoto_set.all %}
+<div class="col s12 m7 l4">
+  <div class="card small">
+    <div class="card-image">
+      <img class="responsive-img" src="{{shoephoto.url}}">
+    </div>
+    <div class="card-stacked">
+      <div class="card-action">
+        <a href="{% url 'shoes_delete' shoephoto.id %}">Delete</a>
+      </div>
+    </div>
+  </div>
+  {% empty %}
+  <div class="card-panel teal-text center-align">You do not have any {{ shoe.category }} yet 😞</div>
+{% endfor %} 
+
+          
 {% endblock %}

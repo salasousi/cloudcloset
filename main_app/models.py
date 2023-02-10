@@ -70,6 +70,8 @@ class Topphoto(models.Model):
     def __str__(self):
         return f"Photo for top_id: {self.top_id} @{self.url}"
 
+
+
 class Bottomphoto(models.Model):
     url = models.CharField(max_length=200)
     bottom = models.ForeignKey(Bottom, on_delete=models.CASCADE)

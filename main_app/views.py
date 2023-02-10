@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 import uuid
 import boto3
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Top, Bottom, Coat, Shoe, Accessory, Topphoto, Bottomphoto, Coatphoto, Shoephoto, Accessoryphoto
 
 
@@ -129,4 +130,25 @@ def add_accessory_photo(request, accessory_id):
     return redirect('a_detail', accessory_id=accessory_id)
 
 
+
 #CBVs
+
+class TopDelete(DeleteView):
+  model = Topphoto
+  success_url = '/mycloset/'
+
+class BottomDelete(DeleteView):
+  model = Bottomphoto
+  success_url = '/mycloset/'
+
+class CoatDelete(DeleteView):
+  model = Coatphoto
+  success_url = '/mycloset/'
+
+class ShoeDelete(DeleteView):
+  model = Shoephoto
+  success_url = '/mycloset/'
+
+class AccessoryDelete(DeleteView):
+  model = Accessoryphoto
+  success_url = '/mycloset/'

@@ -14,4 +14,9 @@ urlpatterns = [
     path('mycloset/coats/<int:coat_id>/add_coat_photo/', views.add_coat_photo, name='add_coat_photo'),
     path('mycloset/shoes/<int:shoe_id>/add_shoe_photo/', views.add_shoe_photo, name='add_shoe_photo'),
     path('mycloset/accessories/<int:accessory_id>/add_accessory_photo/', views.add_accessory_photo, name='add_accessory_photo'),
+    path('mycloset/tops/<int:pk>/delete/', views.TopDelete.as_view(), name='tops_delete'),
+    path('mycloset/bottoms/<int:pk>/delete/', views.BottomDelete.as_view(), name='bottoms_delete'),
+    path('mycloset/coats/<int:pk>/delete/', views.CoatDelete.as_view(), name='coats_delete'),
+    path('mycloset/shoes/<int:pk>/delete/', views.ShoeDelete.as_view(), name='shoes_delete'),
+    path('mycloset/accessories/<int:pk>/delete/', views.AccessoryDelete.as_view(), name='accessories_delete'),
 ]

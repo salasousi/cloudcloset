@@ -2,12 +2,6 @@
 
 <h1>My {{ accessory.category }}</h1>
 
-{% for accessoryphoto in accessory.accessoryphoto_set.all %}
-<img class="responsive-img card-panel" src="{{accessoryphoto.url}}">
-{% empty %}
-<div class="card-panel teal-text center-align">You do not have any {{ accessory.category }} yet 😞</div>
-{% endfor %}
-
 <form
   action="{% url 'add_accessory_photo' accessory.id %}"
   enctype="multipart/form-data"
@@ -21,4 +15,21 @@
 </form>
 
 
+{% for accessoryphoto in accessory.accessoryphoto_set.all %}
+<div class="col s12 m7 l4">
+  <div class="card small">
+    <div class="card-image">
+      <img class="responsive-img" src="{{accessoryphoto.url}}">
+    </div>
+    <div class="card-stacked">
+      <div class="card-action">
+        <a href="{% url 'accessories_delete' accessoryphoto.id %}">Delete</a>
+      </div>
+    </div>
+  </div>
+  {% empty %}
+  <div class="card-panel teal-text center-align">You do not have any {{ accessory.category }} yet 😞</div>
+{% endfor %} 
+
+          
 {% endblock %}

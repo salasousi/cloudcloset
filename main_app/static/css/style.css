@@ -18,3 +18,21 @@ footer {
     padding-top: 0;
     text-align: right;
   }
+
+
+  .card {
+    text-align: center;
+  }
+  
+  @media (max-width: 990px) {
+    .resizeimg {
+      height: auto;
+    }
+  }
+  
+  @media (min-width: 1000px) {
+    .resizeimg {
+      width: auto;
+      height: 350px;
+    }
+  }

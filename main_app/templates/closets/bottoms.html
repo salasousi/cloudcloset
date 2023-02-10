@@ -2,12 +2,6 @@
 
 <h1>My {{ bottom.category }}</h1>
 
-{% for bottomphoto in bottom.bottomphoto_set.all %}
-<img class="responsive-img card-panel" src="{{bottomphoto.url}}">
-{% empty %}
-<div class="card-panel teal-text center-align">You do not have any {{ bottom.category }} yet 😞</div>
-{% endfor %}
-
 <form
   action="{% url 'add_bottom_photo' bottom.id %}"
   enctype="multipart/form-data"
@@ -21,4 +15,23 @@
 </form>
 
 
+{% for bottomphoto in bottom.bottomphoto_set.all %}
+<div class="col s12 m7 l4">
+  <div class="card small">
+    <div class="card-image">
+      <img class="responsive-img" src="{{bottomphoto.url}}">
+    </div>
+    <div class="card-stacked">
+      <div class="card-action">
+        <a href="{% url 'bottoms_delete' bottomphoto.id %}">Delete</a>
+      </div>
+    </div>
+  </div>
+  {% empty %}
+  <div class="card-panel teal-text center-align">You do not have any {{ bottom.category }} yet 😞</div>
+{% endfor %} 
+
+          
 {% endblock %}
+
+
