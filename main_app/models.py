@@ -99,3 +99,32 @@ class Accessoryphoto(models.Model):
 
     def __str__(self):
         return f"Photo for accessory_id: {self.accessory_id} @{self.url}"
+
+
+
+
+
+
+
+class Outfit(models.Model):
+    name = models.CharField(max_length=50)
+    # topphoto = models.ManyToManyField(Topphoto)
+
+    def __str__(self):
+        return f'{self.name}'
+    
+    def get_absolute_url(self):
+        return reverse('style_detail', kwargs={'pk': self.id})
+
+
+class Style(models.Model):
+    occasion = models.CharField(max_length=100)
+    description = models.CharField(max_length=250)
+    outfits = models.ManyToManyField(Outfit)
+    # topphoto = models.ManyToManyField(Topphoto)
+
+    def __str__(self):
+        return self.occasion
+
+    def get_absolute_url(self):
+        return reverse("style_detail", kwargs={'style_id': self.id})

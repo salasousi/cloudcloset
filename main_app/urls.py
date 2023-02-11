@@ -4,6 +4,7 @@ from . import views
 urlpatterns = [
     path('', views.home, name='home'),
     path('mycloset/', views.closet_index, name='index'),
+    path('style/', views.style_index, name='style_index'),
     path('mycloset/tops/<int:top_id>/', views.tops_detail, name='t_detail'),
     path('mycloset/bottoms/<int:bottom_id>/', views.bottoms_detail, name='b_detail'),
     path('mycloset/coats/<int:coat_id>/', views.coats_detail, name='c_detail'),
@@ -19,4 +20,6 @@ urlpatterns = [
     path('mycloset/coats/<int:pk>/delete/', views.CoatDelete.as_view(), name='coats_delete'),
     path('mycloset/shoes/<int:pk>/delete/', views.ShoeDelete.as_view(), name='shoes_delete'),
     path('mycloset/accessories/<int:pk>/delete/', views.AccessoryDelete.as_view(), name='accessories_delete'),
+    path('style/create/', views.StyleCreate.as_view(), name='styles_create'),
+    path('style/<int:style_id>/', views.style_detail, name='style_detail'),
 ]

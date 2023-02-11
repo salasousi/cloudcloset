@@ -1,0 +1,11 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>Style Inspo Space</h1>
+
+
+    {% for style in styles %}
+      <a href="/style/{{ style.id }}"><p>{{style.occasion}}</p></a>
+    {% endfor %}
+
+
+{% endblock %}

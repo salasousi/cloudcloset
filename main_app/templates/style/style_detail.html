@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>{{ style.occasion }}</h1>
+
+{% if style.outfits.count %}
+{% for outfit in style.outfits.all %}
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">{{ outfit.name }}</span>
+  </div>
+</div>
+{% endfor %}
+{% else %}
+<h5>You do not have any outfits styled yet</h5>
+{% endif %}
+
+{% endblock %}

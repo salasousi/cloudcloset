@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 import uuid
 import boto3
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Top, Bottom, Coat, Shoe, Accessory, Topphoto, Bottomphoto, Coatphoto, Shoephoto, Accessoryphoto
+from .models import Top, Bottom, Coat, Shoe, Accessory, Topphoto, Bottomphoto, Coatphoto, Shoephoto, Accessoryphoto, Outfit, Style
 
 
 S3_BASE_URL = 'https://s3.amazonaws.com/'
@@ -28,6 +28,19 @@ def closet_index(request):
          'shoes': shoes,
          'accessories': accessories 
     })
+
+def style_index(request):
+    styles = Style.objects.all()
+    return render(request, 'style/style_index.html', { 'styles': styles })
+
+def style_detail(request, style_id):
+    style = Style.objects.get(id=style_id)
+    outfits = Outfit.objects.all()
+    return render(request, 'style/style_detail.html', { 'style': style, 'outfits': outfits })
+
+def assoc_outfit(request, style_id, outfit_id):
+  Style.objects.get(id=style_id).outfits.add(outfit_id)
+  return redirect('style_detail', style_id=style_id)
 
 
 def tops_detail(request, top_id):
@@ -152,3 +165,9 @@ class ShoeDelete(DeleteView):
 class AccessoryDelete(DeleteView):
   model = Accessoryphoto
   success_url = '/mycloset/'
+
+
+class StyleCreate(CreateView):
+  model = Style
+  fields = ('occasion', 'description')
+  success_url = '/style/'
